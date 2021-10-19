@@ -6,8 +6,6 @@ target 'Filter Cam' do
   use_frameworks!
 
   # Pods for Filter Cam
-  pod 'RxCocoa'
-  pod 'RxDataSources'
   pod 'RxSwift'
   pod 'SnapKit'
 
