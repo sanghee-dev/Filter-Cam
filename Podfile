@@ -9,5 +9,6 @@ target 'Filter Cam' do
   pod 'RxCocoa'
   pod 'RxDataSources'
   pod 'RxSwift'
+  pod 'SnapKit'
 
 end

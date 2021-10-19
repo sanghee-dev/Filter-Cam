@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -67,7 +67,7 @@
 		5EAB05FB271F265D00951DFD /* Filter Cam */ = {
 			isa = PBXGroup;
 			children = (
-				5EAB0610271F268B00951DFD /* MainViewController.swift */,
+				5EAB0612271F29CB00951DFD /* ViewControllers */,
 				5EAB05FC271F265D00951DFD /* AppDelegate.swift */,
 				5EAB0605271F266200951DFD /* Assets.xcassets */,
 				5EAB0607271F266200951DFD /* LaunchScreen.storyboard */,
@@ -76,13 +76,20 @@
 			path = "Filter Cam";
 			sourceTree = "<group>";
 		};
+		5EAB0612271F29CB00951DFD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5EAB0610271F268B00951DFD /* MainViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		94B7D431B6E66882261DBDD0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				6A802E90C2C648FEBD29D182 /* Pods-Filter Cam.debug.xcconfig */,
 				82E08A3BCD0B3873C9EEB236 /* Pods-Filter Cam.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
