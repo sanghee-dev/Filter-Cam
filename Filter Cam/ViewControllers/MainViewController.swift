@@ -25,6 +25,8 @@ final class MainViewController: UIViewController {
         btn.setTitleColor(.white, for: .normal)
         btn.backgroundColor = .systemTeal
         btn.layer.cornerRadius = 40
+        
+        btn.isHidden = true
         return btn
     }()
 
@@ -47,6 +49,24 @@ private extension MainViewController {
         print("Filter Button Tapped")
     }
     
+    @objc func addBtnTapped() {
+        let photoVC = PhotoCollectionViewController()
+        
+        photoVC.selectedPhoto.subscribe(onNext: { [weak self] image in
+            self?.photoImageView.image = image
+            self?.filterBtn.isHidden = false
+        }).disposed(by: disposeBag)
+        
+        navigationController?.pushViewController(photoVC, animated: true)
+    }
+}
+
+private extension MainViewController {
+    func setupNavigationBar() {
+        navigationItem.title = "Filter Cam"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBtnTapped))
+    }
+    
     func addSubViews() {
         view.addSubview(photoImageView)
         view.addSubview(filterBtn)
@@ -62,22 +82,5 @@ private extension MainViewController {
             $0.bottom.equalToSuperview().inset(40)
             $0.width.height.equalTo(80)
         }
-    }
-}
-
-private extension MainViewController {
-    func setupNavigationBar() {
-        navigationItem.title = "Filter Cam"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBtnTapped))
-    }
-    
-    @objc func addBtnTapped() {
-        let photoVC = PhotoCollectionViewController()
-        
-        photoVC.selectedPhoto.subscribe(onNext: { [weak self] image in
-            self?.photoImageView.image = image
-        }).disposed(by: disposeBag)
-        
-        navigationController?.pushViewController(photoVC, animated: true)
     }
 }
