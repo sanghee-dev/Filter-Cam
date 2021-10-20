@@ -13,7 +13,7 @@ import SnapKit
 class PhotoCollectionViewController: UIViewController {
     
     private let selectedPhotoSubject = PublishSubject<UIImage>()
-    private var selectedPhoto: Observable<UIImage> {
+    var selectedPhoto: Observable<UIImage> {
         return selectedPhotoSubject.asObservable()
     }
     
@@ -64,10 +64,9 @@ extension PhotoCollectionViewController: UICollectionViewDelegate, UICollectionV
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
         
         let asset = photoAssets[photoAssets.count - indexPath.row - 1]
-        let width = (collectionView.frame.width - ((column - 1) * padding)) / column
-        let size = CGSize(width: width, height: width)
+        let targetSize = CGSize(width: view.frame.width, height: view.frame.height)
         
-        PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .aspectFit, options: nil) { image, _ in
+        PHImageManager.default().requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: nil) { image, _ in
             cell.photo = image
         }
         
@@ -88,16 +87,16 @@ extension PhotoCollectionViewController: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedAsset = photoAssets[indexPath.row]
-        let width = (collectionView.frame.width - ((column - 1) * padding)) / column
-        let size = CGSize(width: width, height: width)
+        let selectedAsset = photoAssets[photoAssets.count - indexPath.row - 1]
+        let targetSize = CGSize(width: view.frame.width, height: view.frame.height)
         
-        PHImageManager.default().requestImage(for: selectedAsset, targetSize: size, contentMode: .aspectFit, options: nil) { [weak self] image, info in
+        PHImageManager.default().requestImage(for: selectedAsset, targetSize: targetSize, contentMode: .aspectFit, options: nil) { [weak self] image, info in
             
             guard let image = image, let info = info, let isDegradedImage = info["PHImageResultIsDegradedKey"] as? Bool else { return }
 
             if !isDegradedImage {
                 self?.selectedPhotoSubject.onNext(image)
+                
                 self?.navigationController?.popViewController(animated: true)
             }
         }
@@ -109,10 +108,10 @@ private extension PhotoCollectionViewController {
         PHPhotoLibrary.requestAuthorization { [weak self] status in
             if status == .authorized {
                 let assets = PHAsset.fetchAssets(with: .image, options: nil)
-                assets.enumerateObjects { asset, count, unSafePointer in
+                assets.enumerateObjects { [weak self] asset, count, unSafePointer in
                     self?.photoAssets.append(asset)
-                    self?.reloadCollectionView()
                 }
+                self?.reloadCollectionView()
             }
         }
     }

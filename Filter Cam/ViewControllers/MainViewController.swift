@@ -6,9 +6,17 @@
 //
 
 import UIKit
+import RxSwift
 import SnapKit
 
 final class MainViewController: UIViewController {
+    
+    private let disposeBag = DisposeBag()
+    
+    private let photoImageView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
     
     private let filterBtn: UIButton = {
         let btn = UIButton(type: .system)
@@ -25,7 +33,7 @@ final class MainViewController: UIViewController {
         view.backgroundColor = .white
 
         setupNavigationBar()
-        addFilterBtn()
+        addSubViews()
         setupFilterBtn()
     }
 }
@@ -39,8 +47,15 @@ private extension MainViewController {
         print("Filter Button Tapped")
     }
     
-    func addFilterBtn() {
+    func addSubViews() {
+        view.addSubview(photoImageView)
         view.addSubview(filterBtn)
+        
+        photoImageView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.left.right.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(80 + 40 + 16)
+        }
         
         filterBtn.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -58,6 +73,11 @@ private extension MainViewController {
     
     @objc func addBtnTapped() {
         let photoVC = PhotoCollectionViewController()
+        
+        photoVC.selectedPhoto.subscribe(onNext: { [weak self] image in
+            self?.photoImageView.image = image
+        }).disposed(by: disposeBag)
+        
         navigationController?.pushViewController(photoVC, animated: true)
     }
 }
