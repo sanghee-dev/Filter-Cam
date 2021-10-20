@@ -40,8 +40,8 @@ private extension PhotoCollectionViewController {
                 let assets = PHAsset.fetchAssets(with: .image, options: nil)
                 assets.enumerateObjects { asset, count, unSafePointer in
                     self?.photoAssets.append(asset)
+                    self?.reloadCollectionView()
                 }
-                self?.collectionView.reloadData()
             }
         }
     }
@@ -51,20 +51,34 @@ extension PhotoCollectionViewController: UICollectionViewDelegate, UICollectionV
     func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
+        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
     }
     
+    func reloadCollectionView() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        photoAssets.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as UICollectionViewCell
-        cell.backgroundColor = .systemGroupedBackground
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
+        
+        let asset = photoAssets[photoAssets.count - indexPath.row - 1]
+        let width = (collectionView.frame.width - ((column - 1) * padding)) / column
+        let size = CGSize(width: width, height: width)
+        
+        PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .aspectFit, options: nil) { image, _ in
+            cell.photo = image
+        }
+        
         return cell
     }
     
