@@ -80,8 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				5EFBAA93272052BE00FEF629 /* Model */,
-				5EFBAA8D271FF80E00FEF629 /* Cells */,
-				5EAB0612271F29CB00951DFD /* ViewControllers */,
+				5EFBAA8D271FF80E00FEF629 /* Cell */,
+				5EAB0612271F29CB00951DFD /* ViewController */,
 				5EFBAA902720504800FEF629 /* Service */,
 				5EAB05FC271F265D00951DFD /* AppDelegate.swift */,
 				5EAB0605271F266200951DFD /* Assets.xcassets */,
@@ -91,21 +91,21 @@
 			path = "Filter Cam";
 			sourceTree = "<group>";
 		};
-		5EAB0612271F29CB00951DFD /* ViewControllers */ = {
+		5EAB0612271F29CB00951DFD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				5EAB0610271F268B00951DFD /* MainViewController.swift */,
 				5EAB0615271FCBFD00951DFD /* PhotoCollectionViewController.swift */,
 			);
-			path = ViewControllers;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
-		5EFBAA8D271FF80E00FEF629 /* Cells */ = {
+		5EFBAA8D271FF80E00FEF629 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				5EFBAA8E271FF81F00FEF629 /* PhotoCollectionViewCell.swift */,
 			);
-			path = Cells;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		5EFBAA902720504800FEF629 /* Service */ = {
