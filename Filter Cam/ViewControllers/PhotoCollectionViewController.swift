@@ -18,6 +18,8 @@ class PhotoCollectionViewController: UIViewController {
         return collectionView
     }()
     
+    private var photoAssets: [PHAsset] = []
+    
     private let padding: CGFloat = 16
     private let column: CGFloat = 3
     
@@ -27,16 +29,19 @@ class PhotoCollectionViewController: UIViewController {
         
         addCollectionView()
         setupCollectionView()
-        setupPhotos()
+        requestPhotoAuthorization()
     }
 }
 
 private extension PhotoCollectionViewController {
-    func setupPhotos() {
-        PHPhotoLibrary.requestAuthorization { status in
-            switch status {
-            case .authorized: print("authorized")
-            default: break
+    func requestPhotoAuthorization() {
+        PHPhotoLibrary.requestAuthorization { [weak self] status in
+            if status == .authorized {
+                let assets = PHAsset.fetchAssets(with: .image, options: nil)
+                assets.enumerateObjects { asset, count, unSafePointer in
+                    self?.photoAssets.append(asset)
+                }
+                self?.collectionView.reloadData()
             }
         }
     }
