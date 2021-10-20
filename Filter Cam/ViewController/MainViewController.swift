@@ -109,14 +109,15 @@ private extension MainViewController {
     
     func applyFilter() {
         guard let selectedImage = selectedImage else { return }
-
-        FilterService.shared.applyFilter(to: selectedImage, filterKey: filter.CIKey) { [weak self] filteredImage in
-            self?.applyBtn.isEnabled = false
-            self?.photoImageView.image = filteredImage
-            self?.applyBtn.isEnabled = true
-        }
+        applyBtn.isEnabled = false
+        
+        FilterService.shared.applyFilter(to: selectedImage, filterKey: filter.CIKey)
+            .subscribe(onNext: { [weak self] filteredImage in
+                self?.photoImageView.image = filteredImage
+            }).disposed(by: disposeBag)
         
         isFiltered = true
+        applyBtn.isEnabled = true
     }
     
     func updateFilterBtn() {
