@@ -11,17 +11,17 @@ import SnapKit
 
 class PhotoCollectionViewController: UIViewController {
     
+    private var photoAssets: [PHAsset] = []
+    
+    private let padding: CGFloat = 16
+    private let column: CGFloat = 3
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
         return collectionView
     }()
-    
-    private var photoAssets: [PHAsset] = []
-    
-    private let padding: CGFloat = 16
-    private let column: CGFloat = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
