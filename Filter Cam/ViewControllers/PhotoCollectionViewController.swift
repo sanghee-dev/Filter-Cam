@@ -10,7 +10,7 @@ import Photos
 import RxSwift
 import SnapKit
 
-class PhotoCollectionViewController: UIViewController {
+final class PhotoCollectionViewController: UIViewController {
     
     private let selectedPhotoSubject = PublishSubject<UIImage>()
     var selectedPhoto: Observable<UIImage> {
@@ -92,11 +92,10 @@ extension PhotoCollectionViewController: UICollectionViewDelegate, UICollectionV
         
         PHImageManager.default().requestImage(for: selectedAsset, targetSize: targetSize, contentMode: .aspectFit, options: nil) { [weak self] image, info in
             
-            guard let image = image, let info = info, let isDegradedImage = info["PHImageResultIsDegradedKey"] as? Bool else { return }
+            guard let image = image, let info = info, let isDegradedImage = info[Information.shared.isDegradeKey] as? Bool else { return }
 
             if !isDegradedImage {
                 self?.selectedPhotoSubject.onNext(image)
-                
                 self?.navigationController?.popViewController(animated: true)
             }
         }
@@ -108,7 +107,7 @@ private extension PhotoCollectionViewController {
         PHPhotoLibrary.requestAuthorization { [weak self] status in
             if status == .authorized {
                 let assets = PHAsset.fetchAssets(with: .image, options: nil)
-                assets.enumerateObjects { [weak self] asset, count, unSafePointer in
+                assets.enumerateObjects { [weak self] asset, _, _ in
                     self?.photoAssets.append(asset)
                 }
                 self?.reloadCollectionView()

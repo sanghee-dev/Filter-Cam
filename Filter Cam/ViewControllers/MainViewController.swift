@@ -46,7 +46,13 @@ private extension MainViewController {
     }
     
     @objc func filterBtnTapped() {
-        print("Filter Button Tapped")
+        guard let sourceImage = photoImageView.image else { return }
+        
+        PhotoFilterService.shared.applyFilter(to: sourceImage) { [weak self] filteredImage in
+            self?.filterBtn.isEnabled = false
+            self?.photoImageView.image = filteredImage
+            self?.filterBtn.isEnabled = true
+        }
     }
     
     @objc func addBtnTapped() {
@@ -63,7 +69,7 @@ private extension MainViewController {
 
 private extension MainViewController {
     func setupNavigationBar() {
-        navigationItem.title = "Filter Cam"
+        navigationItem.title = Information.shared.appName
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBtnTapped))
     }
     
