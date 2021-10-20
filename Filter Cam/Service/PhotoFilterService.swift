@@ -11,14 +11,15 @@ import CoreImage
 final class PhotoFilterService {
     
     static let shared = PhotoFilterService()
+    
     private var context: CIContext
     
     init() {
         self.context = CIContext()
     }
     
-    func applyFilter(to inputImage: UIImage, completion: @escaping ((UIImage) -> ())) {
-        guard let filter = CIFilter(name: PhotoFilter.shared.halftone) else { return }
+    func applyFilter(to inputImage: UIImage, filterKey: String, completion: @escaping ((UIImage) -> ())) {
+        guard let filter = CIFilter(name: filterKey) else { return }
         filter.setValue(5.0, forKey: kCIInputWidthKey)
         
         let sourceImage = CIImage(image: inputImage)
