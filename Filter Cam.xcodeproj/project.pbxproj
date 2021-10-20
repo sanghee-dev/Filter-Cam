@@ -14,7 +14,7 @@
 		5EAB0611271F268B00951DFD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB0610271F268B00951DFD /* MainViewController.swift */; };
 		5EAB0616271FCBFD00951DFD /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB0615271FCBFD00951DFD /* PhotoCollectionViewController.swift */; };
 		5EFBAA8F271FF81F00FEF629 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBAA8E271FF81F00FEF629 /* PhotoCollectionViewCell.swift */; };
-		5EFBAA922720506000FEF629 /* PhotoFilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBAA912720506000FEF629 /* PhotoFilterService.swift */; };
+		5EFBAA922720506000FEF629 /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBAA912720506000FEF629 /* FilterService.swift */; };
 		5EFBAA95272052C700FEF629 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBAA94272052C700FEF629 /* Filter.swift */; };
 		5EFBAA972720566300FEF629 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBAA962720566300FEF629 /* Information.swift */; };
 		5EFBAA9927206DE000FEF629 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBAA9827206DDF00FEF629 /* Filters.swift */; };
@@ -29,7 +29,7 @@
 		5EAB0610271F268B00951DFD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5EAB0615271FCBFD00951DFD /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		5EFBAA8E271FF81F00FEF629 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
-		5EFBAA912720506000FEF629 /* PhotoFilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFilterService.swift; sourceTree = "<group>"; };
+		5EFBAA912720506000FEF629 /* FilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 		5EFBAA94272052C700FEF629 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		5EFBAA962720566300FEF629 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		5EFBAA9827206DDF00FEF629 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		5EFBAA902720504800FEF629 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				5EFBAA912720506000FEF629 /* PhotoFilterService.swift */,
+				5EFBAA912720506000FEF629 /* FilterService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -251,7 +251,7 @@
 				5EFBAA9927206DE000FEF629 /* Filters.swift in Sources */,
 				5EAB05FD271F265D00951DFD /* AppDelegate.swift in Sources */,
 				5EFBAA95272052C700FEF629 /* Filter.swift in Sources */,
-				5EFBAA922720506000FEF629 /* PhotoFilterService.swift in Sources */,
+				5EFBAA922720506000FEF629 /* FilterService.swift in Sources */,
 				5EFBAA972720566300FEF629 /* Information.swift in Sources */,
 				5EFBAA8F271FF81F00FEF629 /* PhotoCollectionViewCell.swift in Sources */,
 				5EAB0616271FCBFD00951DFD /* PhotoCollectionViewController.swift in Sources */,

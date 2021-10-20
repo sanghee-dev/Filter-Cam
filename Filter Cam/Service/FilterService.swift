@@ -1,5 +1,5 @@
 //
-//  PhotoFilterService.swift
+//  FilterService.swift
 //  Filter Cam
 //
 //  Created by leeesangheee on 2021/10/20.
@@ -8,9 +8,9 @@
 import UIKit
 import CoreImage
 
-final class PhotoFilterService {
+final class FilterService {
     
-    static let shared = PhotoFilterService()
+    static let shared = FilterService()
     
     private var context: CIContext
     

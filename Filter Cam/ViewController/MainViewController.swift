@@ -110,7 +110,7 @@ private extension MainViewController {
     func applyFilter() {
         guard let selectedImage = selectedImage else { return }
 
-        PhotoFilterService.shared.applyFilter(to: selectedImage, filterKey: filter.CIKey) { [weak self] filteredImage in
+        FilterService.shared.applyFilter(to: selectedImage, filterKey: filter.CIKey) { [weak self] filteredImage in
             self?.applyBtn.isEnabled = false
             self?.photoImageView.image = filteredImage
             self?.applyBtn.isEnabled = true
