@@ -19,7 +19,11 @@ final class MainViewController: UIViewController {
             updateFilterBtn()
         }
     }
-    private var isFiltered: Bool = false
+    private var isFiltered: Bool = false {
+        didSet {
+            updateApplyBtn()
+        }
+    }
     
     private let btnWidth: CGFloat = 80
     private let padding: CGFloat = 16
@@ -69,12 +73,15 @@ private extension MainViewController {
         
         let halftoneAction = UIAlertAction(title: Filters.shared.halftone.name, style: .default) { [weak self] _ in
             self?.filter = Filters.shared.halftone
+            self?.isFiltered = false
         }
         let sepiatoneAction = UIAlertAction(title: Filters.shared.sepiaTone.name, style: .default) { [weak self] _ in
             self?.filter = Filters.shared.sepiaTone
+            self?.isFiltered = false
         }
         let effectMonoAction = UIAlertAction(title: Filters.shared.effectMono.name, style: .default) { [weak self] _ in
             self?.filter = Filters.shared.effectMono
+            self?.isFiltered = false
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         
@@ -110,8 +117,6 @@ private extension MainViewController {
         }
         
         isFiltered = true
-        
-        updateApplyBtn()
     }
     
     func updateFilterBtn() {
@@ -128,6 +133,11 @@ private extension MainViewController {
             applyBtn.setTitle("적용", for: .normal)
             applyBtn.backgroundColor = .systemBlue
         }
+    }
+    
+    func updateApplyBtnTrue() {
+        applyBtn.setTitle("적용", for: .normal)
+        applyBtn.backgroundColor = .systemBlue
     }
     
     func undoFilter() {
