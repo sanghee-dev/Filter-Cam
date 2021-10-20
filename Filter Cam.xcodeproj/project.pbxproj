@@ -12,6 +12,7 @@
 		5EAB0606271F266200951DFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EAB0605271F266200951DFD /* Assets.xcassets */; };
 		5EAB0609271F266200951DFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EAB0607271F266200951DFD /* LaunchScreen.storyboard */; };
 		5EAB0611271F268B00951DFD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB0610271F268B00951DFD /* MainViewController.swift */; };
+		5EAB0616271FCBFD00951DFD /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB0615271FCBFD00951DFD /* PhotoCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		5EAB0608271F266200951DFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EAB060A271F266300951DFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EAB0610271F268B00951DFD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5EAB0615271FCBFD00951DFD /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		6A802E90C2C648FEBD29D182 /* Pods-Filter Cam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Filter Cam.debug.xcconfig"; path = "Target Support Files/Pods-Filter Cam/Pods-Filter Cam.debug.xcconfig"; sourceTree = "<group>"; };
 		82E08A3BCD0B3873C9EEB236 /* Pods-Filter Cam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Filter Cam.release.xcconfig"; path = "Target Support Files/Pods-Filter Cam/Pods-Filter Cam.release.xcconfig"; sourceTree = "<group>"; };
 		CE94E6E3E1B10EC1B5911EEB /* Pods_Filter_Cam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Filter_Cam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				5EAB0610271F268B00951DFD /* MainViewController.swift */,
+				5EAB0615271FCBFD00951DFD /* PhotoCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EAB05FD271F265D00951DFD /* AppDelegate.swift in Sources */,
+				5EAB0616271FCBFD00951DFD /* PhotoCollectionViewController.swift in Sources */,
 				5EAB0611271F268B00951DFD /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,7 +25,6 @@ final class MainViewController: UIViewController {
         view.backgroundColor = .white
 
         setupNavigationBar()
-        
         addFilterBtn()
         setupFilterBtn()
     }
@@ -54,11 +53,11 @@ private extension MainViewController {
 private extension MainViewController {
     func setupNavigationBar() {
         navigationItem.title = "Filter Cam"
-
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBtnTapped))
     }
     
     @objc func addBtnTapped() {
-        print("Add Button Tapped")
+        let photoVC = PhotoCollectionViewController()
+        navigationController?.pushViewController(photoVC, animated: true)
     }
 }
