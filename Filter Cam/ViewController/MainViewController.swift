@@ -35,23 +35,16 @@ final class MainViewController: UIViewController {
     }()
     
     private let filterBtn: UIButton = {
-        let btn = UIButton(type: .system)
+        let btn = CustomButton(type: .system)
         btn.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        btn.setTitleColor(.white, for: .normal)
-        btn.layer.cornerRadius = 40
-        
         btn.isHidden = true
         return btn
     }()
         
     private let applyBtn: UIButton = {
-        let btn = UIButton(type: .system)
+        let btn = CustomButton(type: .system)
         btn.setTitle("적용", for: .normal)
         btn.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        btn.setTitleColor(.white, for: .normal)
-        btn.backgroundColor = .systemBlue
-        btn.layer.cornerRadius = 40
-        
         btn.isHidden = true
         return btn
     }()

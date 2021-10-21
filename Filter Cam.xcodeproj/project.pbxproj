@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1830E0F957ACE590088D1F70 /* Pods_Filter_Cam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE94E6E3E1B10EC1B5911EEB /* Pods_Filter_Cam.framework */; };
+		5E63918027216BB900FCB4A1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E63917F27216BB900FCB4A1 /* CustomButton.swift */; };
 		5EAB05FD271F265D00951DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB05FC271F265D00951DFD /* AppDelegate.swift */; };
 		5EAB0606271F266200951DFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EAB0605271F266200951DFD /* Assets.xcassets */; };
 		5EAB0609271F266200951DFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EAB0607271F266200951DFD /* LaunchScreen.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E63917F27216BB900FCB4A1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		5EAB05F9271F265D00951DFD /* Filter Cam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Filter Cam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EAB05FC271F265D00951DFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EAB0605271F266200951DFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				5EFBAA93272052BE00FEF629 /* Model */,
-				5EFBAA8D271FF80E00FEF629 /* Cell */,
+				5EFBAA8D271FF80E00FEF629 /* View */,
 				5EAB0612271F29CB00951DFD /* ViewController */,
 				5EFBAA902720504800FEF629 /* Service */,
 				5EAB05FC271F265D00951DFD /* AppDelegate.swift */,
@@ -100,12 +102,13 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		5EFBAA8D271FF80E00FEF629 /* Cell */ = {
+		5EFBAA8D271FF80E00FEF629 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				5EFBAA8E271FF81F00FEF629 /* PhotoCollectionViewCell.swift */,
+				5E63917F27216BB900FCB4A1 /* CustomButton.swift */,
 			);
-			path = Cell;
+			path = View;
 			sourceTree = "<group>";
 		};
 		5EFBAA902720504800FEF629 /* Service */ = {
@@ -250,6 +253,7 @@
 			files = (
 				5EFBAA9927206DE000FEF629 /* Filters.swift in Sources */,
 				5EAB05FD271F265D00951DFD /* AppDelegate.swift in Sources */,
+				5E63918027216BB900FCB4A1 /* CustomButton.swift in Sources */,
 				5EFBAA95272052C700FEF629 /* Filter.swift in Sources */,
 				5EFBAA922720506000FEF629 /* FilterService.swift in Sources */,
 				5EFBAA972720566300FEF629 /* Information.swift in Sources */,
