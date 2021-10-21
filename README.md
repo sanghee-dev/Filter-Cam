@@ -12,7 +12,18 @@ RxSwift를 사용하여 만든 사진 필터 어플입니다.
 - CoreImage
 
 ## 기술 블로그
-https://velog.io/@leeesangheee/Mastering-RxSwift-4%EA%B0%95-RxSwift%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%B4-%EC%82%AC%EC%A7%84-%ED%95%84%ED%84%B0-%EC%95%B1-%EB%A7%8C%EB%93%A4%EA%B8%B0
+[기술 블로그 링크](https://velog.io/@leeesangheee/Mastering-RxSwift-4%EA%B0%95-RxSwift%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%B4-%EC%82%AC%EC%A7%84-%ED%95%84%ED%84%B0-%EC%95%B1-%EB%A7%8C%EB%93%A4%EA%B8%B0)
+
+## 특징
+- 사진 목록 화면의 PublishSubject는 selectedPhoto 변수 이벤트를 관찰합니다.
+    
+    메인 화면은 이 변수를 subscribe하여 변수에 선택된 사진이 할당되면, 자신의 화면에 해당 사진를 띄웁니다. 
+    
+- 사진에 필터를 적용하는 함수는 이미지를 받아 필터 처리된 사진을 클로저로 반환합니다.
+    
+    메인 화면은 이 함수가 클로저로 필터 처리된 사진을 반환하는 이벤트를 감지합니다.
+    
+    이벤트가 발생하면 자신의 화면에 필터 처리된 이미지를 띄웁니다.
 
 ## 화면
 
