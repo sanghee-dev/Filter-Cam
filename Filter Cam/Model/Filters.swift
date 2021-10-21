@@ -6,20 +6,24 @@
 //
 
 import UIKit
+import CoreImage
 
 struct Filters {
     
     static let shared = Filters()
     
-    let halftone = Filter(CIKey: "CICMYKHalftone",
-                          name: "하프톤",
+    let halftone = Filter(filterKey: kCIInputWidthKey,
+                          filterName: "CICMYKHalftone",
+                          title: "하프톤",
                           color: .systemPink)
     
-    let sepiaTone = Filter(CIKey: "CICMYKHalftone", // CISepiaTone
-                           name: "세피아톤",
+    let sepiaTone = Filter(filterKey: kCIInputIntensityKey,
+                           filterName: "CISepiaTone",
+                           title: "세피아톤",
                            color: .brown)
     
-    let effectMono = Filter(CIKey: "CICMYKHalftone", // CIEffectMono
-                            name: "모노톤",
+    let effectMono = Filter(filterKey: kCIInputImageKey,
+                            filterName: "CIColorMonochrome",
+                            title: "모노톤",
                             color: .systemGray)
 }

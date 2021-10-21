@@ -64,15 +64,15 @@ private extension MainViewController {
     @objc func showActionSheet() {
         let alert = UIAlertController(title: "사진 필터", message: "사진 필터를 선택해주세요", preferredStyle: .actionSheet)
         
-        let halftoneAction = UIAlertAction(title: Filters.shared.halftone.name, style: .default) { [weak self] _ in
+        let halftoneAction = UIAlertAction(title: Filters.shared.halftone.title, style: .default) { [weak self] _ in
             self?.filter = Filters.shared.halftone
             self?.isFiltered = false
         }
-        let sepiatoneAction = UIAlertAction(title: Filters.shared.sepiaTone.name, style: .default) { [weak self] _ in
+        let sepiatoneAction = UIAlertAction(title: Filters.shared.sepiaTone.title, style: .default) { [weak self] _ in
             self?.filter = Filters.shared.sepiaTone
             self?.isFiltered = false
         }
-        let effectMonoAction = UIAlertAction(title: Filters.shared.effectMono.name, style: .default) { [weak self] _ in
+        let effectMonoAction = UIAlertAction(title: Filters.shared.effectMono.title, style: .default) { [weak self] _ in
             self?.filter = Filters.shared.effectMono
             self?.isFiltered = false
         }
@@ -104,7 +104,7 @@ private extension MainViewController {
         guard let selectedImage = selectedImage else { return }
         applyBtn.isEnabled = false
         
-        FilterService.shared.applyFilter(to: selectedImage, filterKey: filter.CIKey)
+        FilterService.shared.applyFilter(to: selectedImage, filterKey: filter.filterKey, filterName: filter.filterName )
             .subscribe(onNext: { [weak self] filteredImage in
                 self?.photoImageView.image = filteredImage
             }).disposed(by: disposeBag)
@@ -114,7 +114,7 @@ private extension MainViewController {
     }
     
     func updateFilterBtn() {
-        filterBtn.setTitle(filter.name, for: .normal)
+        filterBtn.setTitle(filter.title, for: .normal)
         filterBtn.backgroundColor = filter.color
     }
     
@@ -163,7 +163,7 @@ private extension MainViewController {
     }
     
     func setupFilterBtn() {
-        filterBtn.setTitle(filter.name, for: .normal)
+        filterBtn.setTitle(filter.title, for: .normal)
         filterBtn.backgroundColor = filter.color
     }
     

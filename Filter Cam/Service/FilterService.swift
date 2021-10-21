@@ -19,9 +19,9 @@ final class FilterService {
         self.context = CIContext()
     }
     
-    func applyFilter(to inputImage: UIImage, filterKey: String) -> Observable<UIImage> {
+    func applyFilter(to inputImage: UIImage, filterKey: String, filterName: String) -> Observable<UIImage> {
         return Observable<UIImage>.create { observer in
-            self.applyFilterToImage(to: inputImage, filterKey: filterKey) { filteredImage in
+            self.applyFilterToImage(to: inputImage, filterKey: filterKey, filterName: filterName) { filteredImage in
                 observer.onNext(filteredImage)
             }
             
@@ -29,9 +29,9 @@ final class FilterService {
         }
     }
     
-    private func applyFilterToImage(to inputImage: UIImage, filterKey: String, completion: @escaping ((UIImage) -> ())) {
-        guard let filter = CIFilter(name: filterKey) else { return }
-        filter.setValue(5.0, forKey: kCIInputWidthKey)
+    private func applyFilterToImage(to inputImage: UIImage, filterKey: String, filterName: String, completion: @escaping ((UIImage) -> ())) {
+        guard let filter = CIFilter(name: filterName) else { return }
+        filter.setValue(1.0, forKey: filterKey)
         
         let sourceImage = CIImage(image: inputImage)
         filter.setValue(sourceImage, forKey: kCIInputImageKey)

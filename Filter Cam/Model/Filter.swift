@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import CoreImage
 
 struct Filter {
-    let CIKey: String
-    let name: String
+    let filterKey: String
+    let filterName: String
+    let title: String
     let color: UIColor
 }
