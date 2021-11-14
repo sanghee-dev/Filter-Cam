@@ -50,7 +50,3 @@ RxSwift를 사용하여 만든 사진 필터 어플입니다.
 - 이전에 필터가 이미 적용이 되어서 취소 버튼이더라도 필터가 변경되면 적용 버튼으로 바뀝니다(사용자가 필터를 적용하고자 필터를 변경하는 목적이 크기에 버튼은 적용 버튼으로 바뀝니다).
 
 <img src="https://user-images.githubusercontent.com/61302874/138222797-12c32191-fbb5-4b2f-a942-a40c9a291e51.gif" width="300" align="left" >
-<img src="https://user-images.githubusercontent.com/61302874/138222988-e34c1de1-fc75-4105-bfde-eeb9f67d8e99.png" width="300" >
-
-<img src="https://user-images.githubusercontent.com/61302874/138220905-05e88c3b-4376-481f-ae88-ec0d855f93f3.png" width="300" align="left" >
-<img src="https://user-images.githubusercontent.com/61302874/138220929-bdcffd68-50c0-44b4-90ac-a559531a83b0.png" width="300" >
